@@ -183,7 +183,8 @@ router.get('/user', requireToken, (req, res, next) => {
 // PATCH USER
 router.patch('/user', requireToken, (req, res, next) => {
     // find the user
-    User.findOne({ _id: req.body.user.id })
+	console.log(req.body.user._id)
+    User.findOne({ _id: req.body.user._id })
         .then(handle404)
         .then(user => {
             user.set(req.body.user)
